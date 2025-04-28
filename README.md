@@ -21,7 +21,7 @@ sudo bash ./env.sh
 make
 ```
 
-The script launches BMv2, generates traffic with iperf3, collects traces, and stores all artefacts under results/. To visualise the experiment: you can use plots.py script.
+The script launches BMv2, generates traffic with iperf3, collects traces, and stores all artefacts under results/. To visualise the experiment: you can use `plots.py` script.
 
 
 ## Compile in your own P4 environment
@@ -39,6 +39,6 @@ Git clone this repository and locate in ecn file to compile it.
 
 ### Inject
 
-In order to keep timing logic you need to build topology by yourselves, then inject the Mininet object (net) into test.py.
+In order to keep timing logic you need to build topology by yourselves, then inject the Mininet object (net) into `test.py`.
 
 
