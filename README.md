@@ -1,17 +1,11 @@
 # CS6501-Network-Security-Privacy-Final
 
-## Compile in your own P4 environment
-
-### Install L4S
-
-Follow below link to install prague and dualpi2
-https://github.com/L4STeam/linux 
-
-### Compile
-
-Git clone this repository and locate in ecn file to compile it.
-
 ## Running in Virtual machine
+
+### Download VM
+* **VM image** (Ubuntu 20.04): <https://drive.google.com/file/d/1TM7AP6qM2Hw7yUFAWJYoXpestTNSTyKD/>
+* **Login** – user: `p4`   password: `p4`
+
 
 ### Go to the specified folder
 ```
@@ -28,4 +22,16 @@ sudo bash ./env.sh
 make
 ```
 
-The script will run automatically and the final result is in the results folder, you can use plots.py to output the final image
+The script launches BMv2, generates traffic with iperf3, collects traces, and stores all artefacts under results/. To visualise the experiment: you can use plots.py script.
+
+
+## Compile in your own P4 environment
+
+### Install L4S
+
+Follow below link to install prague and dualpi2
+https://github.com/L4STeam/linux 
+
+### Compile
+
+Git clone this repository and locate in ecn file to compile it.
