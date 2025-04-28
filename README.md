@@ -3,22 +3,21 @@
 ## Running in Virtual machine
 
 ### Download VM
-* **VM image** (Ubuntu 20.04): <https://drive.google.com/file/d/1TM7AP6qM2Hw7yUFAWJYoXpestTNSTyKD/>
-* **Login** – user: `p4`   password: `p4`
-
+**VM image** (Ubuntu 20.04): <https://drive.google.com/file/d/1TM7AP6qM2Hw7yUFAWJYoXpestTNSTyKD/>
+**Login** – user: `p4`   password: `p4`
 
 ### Go to the specified folder
-```
+```bash
 cd /home/p4/p4tutorials/exercises/ecn
 ```
 
 ### Create environment
-```
+```bash
 sudo bash ./env.sh
 ```
 
 ### Compile P4 program
-```
+```bash
 make
 ```
 
