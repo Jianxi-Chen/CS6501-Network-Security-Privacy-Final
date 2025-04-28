@@ -1,0 +1,87 @@
+#!/usr/bin/expect -f
+
+set timeout 10
+set password "Uva78607870"
+
+set host_commands {
+    {
+        "192.168.122.126" {
+            "sudo modprobe sch_dualpi2"
+            "sudo tc class add dev enp1s0 parent 1: classid 1:0 htb rate 100mbit ceil 100mbit"
+            "sudo tc qdisc add dev enp1s0 parent 1:0 handle 20: dualpi2 "
+        }
+    }
+    {
+        "192.168.122.117" {
+            "sudo modprobe sch_dualpi2"
+            "sudo tc class add dev enp1s0 parent 1: classid 1:0 htb rate 100mbit ceil 100mbit"
+            "sudo tc qdisc add dev enp1s0 parent 1:0 handle 20: dualpi2 "
+        }
+    }
+    {    
+        "192.168.122.163" {
+            "sudo modprobe sch_dualpi2"
+            "sudo tc class add dev enp1s0 parent 1: classid 1:0 htb rate 100mbit ceil 100mbit"
+            "sudo tc qdisc add dev enp1s0 parent 1:0 handle 20: dualpi2 "
+        }
+    }
+    {
+        "192.168.122.230" {
+            "sudo modprobe sch_dualpi2"
+            "sudo tc class add dev enp1s0 parent 1: classid 1:0 htb rate 100mbit ceil 100mbit"
+            "sudo tc qdisc add dev enp1s0 parent 1:0 handle 20: dualpi2 "
+        }    
+    }
+    {
+        "192.168.122.224" {
+            "sudo modprobe sch_dualpi2"
+            "sudo tc class add dev enp1s0 parent 1: classid 1:0 htb rate 100mbit ceil 100mbit"
+            "sudo tc qdisc add dev enp1s0 parent 1:0 handle 20: dualpi2 "
+        }    
+    }
+}
+
+foreach host_cmd_tuple $host_commands {    
+    set host [lindex $host_cmd_tuple 0]
+    set commands [lindex $host_cmd_tuple 1]
+    
+    exec ssh-keygen -f /home/hamza/.ssh/known_hosts -R $host >/dev/null 2>&1
+    spawn ssh -o StrictHostKeyChecking=no hamza@$host
+
+    expect { 
+        "yes/no" {
+            send "yes\r"
+            exp_continue
+        }
+        "password:" {
+            send "$password\r";
+        }
+        "$ " {
+            puts "Logged in to $host"
+        }
+        
+    }
+    sleep 1 
+    if {[info exists spawn_id]} {
+        foreach cmd $commands {
+            send "$cmd\r"
+            sleep 1
+            expect { 
+                "password for" {
+                    send "$password\r"
+                    sleep 1
+                    exp_continue
+                }
+                "$ " {}
+                timeout {
+                    puts "Command timeout on $host: $cmd"
+                    break
+                }
+            }
+        }
+    }
+    send "exit\r"
+    expect eof    
+}
+
+exit
