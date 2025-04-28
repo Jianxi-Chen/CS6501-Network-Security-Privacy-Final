@@ -26,10 +26,12 @@ The script launches BMv2, generates traffic with iperf3, collects traces, and st
 
 ## Compile in your own P4 environment
 
-### Install L4S
+###  Prerequisites
+Bare-metal or VM with P4 tool-chain (p4c-bm2-ss, BMv2, P4Runtime)
+– follow the official install guide for your OS.
 
-Follow below link to install prague and dualpi2
-https://github.com/L4STeam/linux 
+Linux L4S stack (TCP Prague + DualPI2 queue discipline):
+clone and compile the kernel from https://github.com/L4STeam/linux.
 
 ### Compile
 
