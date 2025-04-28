@@ -36,3 +36,9 @@ clone and compile the kernel from https://github.com/L4STeam/linux.
 ### Compile
 
 Git clone this repository and locate in ecn file to compile it.
+
+### Inject
+
+In order to keep timing logic you need to build topology by yourselves, then inject the Mininet object (net) into test.py.
+
+
