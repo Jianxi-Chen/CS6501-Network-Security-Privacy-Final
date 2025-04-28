@@ -1,4 +1,7 @@
 # CS6501-Network-Security-Privacy-Final
+This project includes a lightweight automated test framework that recreates the ECN spoofing–detection–recovery workflow in a standard BMv2/Mininet environment.
+The framework builds a 3-switch, 4-host topology, loads the compiled P4 program, and runs a timed sequence of iperf3 traffic, attack rule injection, and recovery rule updates — fully automating the experimental process.
+All packet captures, iperf logs, and result CSVs are archived automatically under , ready for analysis and plotting.
 
 ## Running in Virtual machine
 
