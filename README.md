@@ -32,7 +32,7 @@ The script launches BMv2, generates traffic with iperf3, collects traces, and st
 ## Compile in your own P4 environment
 
 ###  Prerequisites
-Bare-metal or VM with P4 tool-chain (p4c-bm2-ss, BMv2, P4Runtime)
+Bare-metal or VM with P4 tool-chain (p4c-bm2-ss, BMv2, P4Runtime), Mininet
 – follow the official install guide for your OS.
 
 Linux L4S stack (TCP Prague + DualPI2 queue discipline):
